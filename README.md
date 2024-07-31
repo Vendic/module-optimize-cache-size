@@ -5,5 +5,5 @@ You can set up it here Stores -> Configuration -> Vendic -> Optimize Cache Size
 
 ## Installation
 ```bash
-composer require vendic/magento2-optimize-cache-size
+composer require vendic/module-optimize-cache-size
 ```
