@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+    ~ Copyright (c) Vendic B.V https://vendic.nl/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Layout\ProcessorInterface">
+        <plugin name="vendic_optimize_cache_size_remove_handlers"
+                type="Vendic\OptimizeCacheSize\Plugin\RemoveHandlersPlugin"
+                sortOrder="1"/>
+    </type>
+</config>

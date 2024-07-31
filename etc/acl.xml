@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+    ~ Copyright (c) Vendic B.V https://vendic.nl/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Vendic_OptimizeCacheSize::config" title="Optimize Cache Size Setup"/>
+            </resource>
+        </resources>
+    </acl>
+</config>

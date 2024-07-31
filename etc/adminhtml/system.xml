@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+    ~ Copyright (c) Vendic B.V https://vendic.nl/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="vendic" translate="label" sortOrder="10">
+            <label>Vendic</label>
+        </tab>
+        <section id="optimize_cache_size" translate="label" sortOrder="1000"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Optimize Cache Size</label>
+            <tab>vendic</tab>
+            <resource>Vendic_OptimizeCacheSize::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInStore="1" showInWebsite="1"
+                   showInDefault="1" type="text">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="product_id" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Remove Product ID Handlers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Removes catalog_product_view_id_ID handlers</comment>
+                    <depends>
+                        <field id="optimize_cache_size/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="product_sku" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Remove Product SKU Handlers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Removes catalog_product_view_sku_SKU handlers</comment>
+                    <depends>
+                        <field id="optimize_cache_size/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="category_id" translate="label" type="select" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Remove Category ID Handlers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Removes catalog_category_view_id_ID handlers</comment>
+                    <depends>
+                        <field id="optimize_cache_size/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

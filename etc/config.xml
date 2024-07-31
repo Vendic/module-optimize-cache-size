@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+    ~ Copyright (c) Vendic B.V https://vendic.nl/
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <optimize_cache_size>
+            <general>
+                <enabled>1</enabled>
+                <product_id>1</product_id>
+                <product_sku>1</product_sku>
+                <category_id>1</category_id>
+            </general>
+        </optimize_cache_size>
+    </default>
+</config>
