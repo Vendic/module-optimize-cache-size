@@ -12,6 +12,8 @@ composer require vendic/module-optimize-cache-size
 ```
 
 ## Related discussions
+- [#189 Configuration option to disable product specific layout update handles  ](https://github.com/magento/magento2/issues/189#issuecomment-698430804)
+- [#102 New handles for the Category, Product and CMS pages](https://github.com/magento/magento2/issues/102)
 - [#36244 Product layout based on attribute set](https://github.com/magento/magento2/pull/36244#issuecomment-2231106962) - We need to adjust this extension for Magento 2.4.8, since it's not possible to create specific layouts per attribute set. See [toonvd's comment](https://github.com/magento/magento2/pull/36244#issuecomment-2265233727) 
 
 ## Results
