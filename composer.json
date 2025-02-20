@@ -1,14 +1,13 @@
 {
   "name": "vendic/module-optimize-cache-size",
-  "version": "1.0.0",
-  "description": "N/A",
+  "description": "Magento 2 extension that reduces the number of cache keys by removing catalog_product_view_id_, catalog_product_view_sku_, catalog_category_view_id_ layout handles by default",
   "type": "magento2-module",
   "require": {
     "magento/framework": "*",
     "magento/module-catalog": "104.0.*"
   },
   "license": [
-    "Proprietary"
+    "MIT"
   ],
   "autoload": {
     "files": [
