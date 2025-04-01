@@ -24,7 +24,7 @@ class RemoveHandlersPlugin
     public function afterAddHandle(
         ProcessorInterface $subject,
         ProcessorInterface $result,
-        array|string $handleName
+        array|string|null $handleName
     ): ProcessorInterface {
         if (!$this->config->isModuleEnabled()) {
             return $result;
