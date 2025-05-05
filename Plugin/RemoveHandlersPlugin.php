@@ -14,6 +14,7 @@ class RemoveHandlersPlugin
 
     private const PRODUCT_ID_HANDLER_STRING = 'catalog_product_view_id_';
     private const PRODUCT_SKU_HANDLER_STRING = 'catalog_product_view_sku_';
+    private const PRODUCT_ATTRIBUTE_SET_HANDLER_STRING = 'catalog_product_view_attribute_set_';
     private const CATEGORY_ID_HANDLER_STRING = 'catalog_category_view_id_';
 
     public function __construct(
@@ -43,6 +44,10 @@ class RemoveHandlersPlugin
             }
             if ($this->config->isRemoveProductSkuHandlers()
                 && str_contains($handler, self::PRODUCT_SKU_HANDLER_STRING)) {
+                $result->removeHandle($handler);
+            }
+            if ($this->config->isRemoveProductAttributeSetHandlers()
+                && str_contains($handler, self::PRODUCT_ATTRIBUTE_SET_HANDLER_STRING)) {
                 $result->removeHandle($handler);
             }
         }
