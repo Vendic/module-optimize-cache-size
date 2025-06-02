@@ -15,15 +15,17 @@ class Config
     private const OCS_GENERAL_PRODUCT_ID_PATH = 'optimize_cache_size/general/product_id';
     private const OCS_GENERAL_PRODUCT_SKU_PATH = 'optimize_cache_size/general/product_sku';
     private const OCS_GENERAL_CATEGORY_ID_PATH = 'optimize_cache_size/general/category_id';
+    private const OCS_GENERAL_CATEGORY_ID_EXCLUSION_PATH = 'optimize_cache_size/general/category_id_exclusion';
 
     public function __construct(
         private ScopeConfigInterface $scopeConfig
-    ) {
+    )
+    {
     }
 
     public function isModuleEnabled(int $store = 0): bool
     {
-        return  $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_IS_ENABLED_PATH,
             ScopeInterface::SCOPE_STORE,
             $store
@@ -32,7 +34,7 @@ class Config
 
     public function isRemoveProductIdHandlers(int $store = 0): bool
     {
-        return  $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_PRODUCT_ID_PATH,
             ScopeInterface::SCOPE_STORE,
             $store
@@ -41,7 +43,7 @@ class Config
 
     public function isRemoveProductSkuHandlers(int $store = 0): bool
     {
-        return  $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_PRODUCT_SKU_PATH,
             ScopeInterface::SCOPE_STORE,
             $store
@@ -50,10 +52,19 @@ class Config
 
     public function isRemoveCategoryIdHandlers(int $store = 0): bool
     {
-        return  $this->scopeConfig->isSetFlag(
+        return $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_CATEGORY_ID_PATH,
             ScopeInterface::SCOPE_STORE,
             $store
         );
+    }
+
+    public function getCategoryIdExclusions(int $store = 0): array
+    {
+        return explode(',', $this->scopeConfig->getValue(
+            self::OCS_GENERAL_CATEGORY_ID_EXCLUSION_PATH,
+            ScopeInterface::SCOPE_STORE,
+            $store
+        ) ?? '');
     }
 }

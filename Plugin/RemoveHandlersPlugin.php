@@ -33,8 +33,14 @@ class RemoveHandlersPlugin
         foreach ($handlers as $handler) {
             if ($this->config->isRemoveCategoryIdHandlers()
                 && str_contains($handler, self::CATEGORY_ID_HANDLER_STRING)) {
-                $result->removeHandle($handler);
-                continue;
+
+                $categoryID = str_replace(self::CATEGORY_ID_HANDLER_STRING, '', $handler);
+                $categoryIdExclusions = $this->config->getCategoryIdExclusions();
+
+                if(!in_array($categoryID, $categoryIdExclusions)){
+                    $result->removeHandle($handler);
+                    continue;
+                }
             }
             if ($this->config->isRemoveProductIdHandlers()
                 && str_contains($handler, self::PRODUCT_ID_HANDLER_STRING)) {
