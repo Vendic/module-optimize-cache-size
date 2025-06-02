@@ -48,6 +48,16 @@
                         <field id="optimize_cache_size/general/enabled">1</field>
                     </depends>
                 </field>
+                <field id="category_id_exclusion" translate="label" type="multiselect" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Exclude Category IDs</label>
+                    <source_model>Vendic\OptimizeCacheSize\Model\Config\Source\CategoryList</source_model>
+                    <comment>Select all categories which should keep their id in the cache handle</comment>
+                    <depends>
+                        <field id="optimize_cache_size/general/enabled">1</field>
+                        <field id="optimize_cache_size/general/category_id">1</field>
+                    </depends>
+                </field>
             </group>
         </section>
     </system>
