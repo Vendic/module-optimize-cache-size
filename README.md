@@ -2,7 +2,7 @@
 Magento 2 extension that reduces the number of cache keys by removing `catalog_product_view_id_`, `catalog_product_view_sku_`, `catalog_category_view_id_`
 layout handles **by default**, 
 
-**This means that you loose the option to have product/category specific layout handles**, unless you re-enable them via the configuration.
+**This means that you loose the option to have product/category specific layout handles** (both through the use of XML files in your installation _and_ through the use of Design > Layout and Design > Custom Layout Update on the category and product edit pages in the admin), unless you re-enable them via the configuration.
 
 Configuration: Stores -> Configuration -> Vendic -> Optimize Cache Size
 
