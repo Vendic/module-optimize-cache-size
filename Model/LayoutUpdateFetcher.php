@@ -18,15 +18,9 @@ readonly class LayoutUpdateFetcher
     ) {
     }
 
-    public function isDbLayoutHandler(string $handler, string $themeId, string $storeId): bool
+    public function fetchDbLayoutHandlers(array $handler, string $themeId, string $storeId): array
     {
         $connection = $this->resourceConnection->getConnection();
-
-        $bind = [
-            'theme_id' => $themeId,
-            'store_id' => $storeId,
-            'handle' => $handler,
-        ];
 
         $select = $connection->select()->from(
             ['layout_update' => $connection->getTableName('layout_update')],
@@ -36,15 +30,18 @@ readonly class LayoutUpdateFetcher
             'link.layout_update_id=layout_update.layout_update_id',
             ''
         )->where(
-            'link.store_id IN (0, :store_id)'
+            'link.store_id IN (0, ?)',
+            $storeId
         )->where(
-            'link.theme_id = :theme_id'
+            'link.theme_id = ?',
+            $themeId
         )->where(
-            'handle = :handle'
+            'handle IN (?)',
+            $handler
         )->order(
             'layout_update.sort_order ' . Select::SQL_ASC
         );
 
-        return (bool)$connection->fetchOne($select, $bind);
+        return $connection->fetchCol($select);
     }
 }

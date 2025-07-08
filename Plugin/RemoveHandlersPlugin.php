@@ -47,11 +47,14 @@ class RemoveHandlersPlugin
         $store = (string)$this->storeManager->getStore()->getId();
         $theme = (string)$this->design->getDesignTheme()->getId();
         $handlers = $result->getHandles();
+
+        $dbLayoutHandlers = $this->layoutUpdateFetcher->fetchDbLayoutHandlers($handlers, $theme, $store);
+
         foreach ($handlers as $handler) {
             if (
                 $this->config->isRemoveCategoryIdHandlers()
                 && str_contains($handler, self::CATEGORY_ID_HANDLER_STRING)
-                && !$this->layoutUpdateFetcher->isDbLayoutHandler($handler, $theme, $store)
+                && !in_array($handler, $dbLayoutHandlers)
             ) {
                 $result->removeHandle($handler);
                 continue;
@@ -60,7 +63,7 @@ class RemoveHandlersPlugin
             if (
                 $this->config->isRemoveProductIdHandlers()
                 && str_contains($handler, self::PRODUCT_ID_HANDLER_STRING)
-                && !$this->layoutUpdateFetcher->isDbLayoutHandler($handler, $theme, $store)
+                && !in_array($handler, $dbLayoutHandlers)
             ) {
                 $result->removeHandle($handler);
                 continue;
@@ -69,6 +72,7 @@ class RemoveHandlersPlugin
             if (
                 $this->config->isRemoveProductSkuHandlers()
                 && str_contains($handler, self::PRODUCT_SKU_HANDLER_STRING)
+                && !in_array($handler, $dbLayoutHandlers)
             ) {
                 $result->removeHandle($handler);
             }
