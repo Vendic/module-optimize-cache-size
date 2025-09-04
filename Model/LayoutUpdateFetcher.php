@@ -78,7 +78,7 @@ class LayoutUpdateFetcher
             'layout_update.sort_order ' . Select::SQL_ASC
         );
 
-        $this->cache[$cacheKey] = $connection->fetchAll($select);
+        $this->cache[$cacheKey] = $connection->fetchCol($select);
         return $this->cache[$cacheKey];
     }
 }
