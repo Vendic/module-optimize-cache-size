@@ -39,6 +39,15 @@
                         <field id="optimize_cache_size/general/enabled">1</field>
                     </depends>
                 </field>
+                <field id="product_attribute_set" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Remove Product Attribute Set Handlers</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Removes catalog_product_view_attribute_set_ID handlers</comment>
+                    <depends>
+                        <field id="optimize_cache_size/general/enabled">1</field>
+                    </depends>
+                </field>
                 <field id="category_id" translate="label" type="select" sortOrder="30" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Remove Category ID Handlers</label>

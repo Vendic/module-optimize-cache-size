@@ -10,6 +10,7 @@
                 <enabled>1</enabled>
                 <product_id>1</product_id>
                 <product_sku>1</product_sku>
+                <product_attribute_set>1</product_attribute_set>
                 <category_id>1</category_id>
             </general>
         </optimize_cache_size>
