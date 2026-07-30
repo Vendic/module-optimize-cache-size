@@ -22,7 +22,7 @@ class Config
     ) {
     }
 
-    public function isModuleEnabled(int $store = 0): bool
+    public function isModuleEnabled(?int $store = null): bool
     {
         return  $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_IS_ENABLED_PATH,
@@ -31,7 +31,7 @@ class Config
         );
     }
 
-    public function isRemoveProductIdHandlers(int $store = 0): bool
+    public function isRemoveProductIdHandlers(?int $store = null): bool
     {
         return  $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_PRODUCT_ID_PATH,
@@ -40,7 +40,7 @@ class Config
         );
     }
 
-    public function isRemoveProductSkuHandlers(int $store = 0): bool
+    public function isRemoveProductSkuHandlers(?int $store = null): bool
     {
         return  $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_PRODUCT_SKU_PATH,
@@ -49,7 +49,7 @@ class Config
         );
     }
 
-    public function isRemoveProductAttributeSetHandlers(int $store = 0): bool
+    public function isRemoveProductAttributeSetHandlers(?int $store = null): bool
     {
         return  $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_PRODUCT_ATTRIBUTE_SET_PATH,
@@ -58,7 +58,7 @@ class Config
         );
     }
 
-    public function isRemoveCategoryIdHandlers(int $store = 0): bool
+    public function isRemoveCategoryIdHandlers(?int $store = null): bool
     {
         return  $this->scopeConfig->isSetFlag(
             self::OCS_GENERAL_CATEGORY_ID_PATH,
